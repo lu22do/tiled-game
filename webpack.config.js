@@ -8,17 +8,15 @@ config = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        use: {
-          loader: "babel-loader"
-        }
+        use: 'babel-loader'
       },
       {
         test: /\.css$/,
-        use: ["style-loader", "css-loader"]
+        use: ['style-loader', 'css-loader']
       },
       {
         test: /\.(jpe?g|gif|png|svg|woff)$/,
-        use: ['file-loader']
+        use: 'file-loader'
       }
     ]
   },
