@@ -1,6 +1,8 @@
+const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
-module.exports = {
+config = {
   module: {
     rules: [
       {
@@ -25,5 +27,19 @@ module.exports = {
       template: './src/index.html'
     })
   ],
-  devtool: 'inline-source-map'
+  devServer: {
+    contentBase: path.join(__dirname, 'src'),
+    watchContentBase: true
+  }
+}
+
+module.exports = (env, argv) => {
+  if (argv.mode === 'production') {
+    config.plugins.unshift(new CleanWebpackPlugin(['dist']));
+  }
+  else {
+    config.devtool = 'inline-source-map';
+  }
+
+  return config;
 };
