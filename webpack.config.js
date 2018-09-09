@@ -3,6 +3,11 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 config = {
+  optimization: {
+    splitChunks: {
+      chunks: 'all'
+    }
+  },
   module: {
     rules: [
       {
@@ -17,6 +22,10 @@ config = {
       {
         test: /\.(jpe?g|gif|png|svg|woff)$/,
         use: 'file-loader'
+      },
+      {
+        test: [ /\.vert$/, /\.frag$/ ],
+        use: 'raw-loader'
       }
     ]
   },

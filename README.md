@@ -1,5 +1,5 @@
 # Overview
-Webpack 4-based boilerplate.
+Webpack 4+Phaser+React based boilerplate.
 
 # Commands
   * 'npm run dev' to start in dev mode.
